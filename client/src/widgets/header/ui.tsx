@@ -1,0 +1,71 @@
+import { BarChartOutlined, ClockCircleOutlined, TeamOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
+import React from 'react';
+import { AppRoutes } from '@/shared/config';
+import { IHeaderProps } from './model';
+
+export const HeaderWidget: React.FC<IHeaderProps> = ({ currentPath, onNavigate }) => {
+  return (
+    <header className="app-header__container bg-white! border-b! border-slate-200! sticky! top-0! z-50! shadow-xs!">
+      <div className="app-header__content max-w-7xl! mx-auto! px-4! sm:px-6! h-16! flex! items-center! justify-between!">
+        <div
+          className="app-header__logo flex! items-center! gap-3! cursor-pointer!"
+          onClick={() => onNavigate(AppRoutes.TRACKER)}
+        >
+          <div className="app-header__logo-icon w-9! h-9! rounded-xl! bg-gradient-to-tr! from-sky-600! to-indigo-600! text-white! flex! items-center! justify-center! text-lg! font-black! shadow-sm!">
+            <ClockCircleOutlined />
+          </div>
+          <div className="app-header__brand">
+            <span className="app-header__title font-black! text-slate-800! text-lg! tracking-tight!">
+              Falcon<span className="text-sky-600!">AI</span>
+            </span>
+            <span className="app-header__badge ml-2! text-xs! font-medium! text-sky-700! bg-sky-50! px-2! py-0.5! rounded-md! border! border-sky-200!">
+              Time Tracker
+            </span>
+          </div>
+        </div>
+
+        <nav className="app-header__nav flex! items-center! gap-2!">
+          <Button
+            type={currentPath === AppRoutes.TRACKER ? 'primary' : 'text'}
+            icon={<ClockCircleOutlined />}
+            onClick={() => onNavigate(AppRoutes.TRACKER)}
+            className={
+              currentPath === AppRoutes.TRACKER
+                ? 'bg-sky-600! font-medium!'
+                : 'text-slate-600! font-medium!'
+            }
+          >
+            Трекинг
+          </Button>
+
+          <Button
+            type={currentPath === AppRoutes.EMPLOYEES ? 'primary' : 'text'}
+            icon={<TeamOutlined />}
+            onClick={() => onNavigate(AppRoutes.EMPLOYEES)}
+            className={
+              currentPath === AppRoutes.EMPLOYEES
+                ? 'bg-sky-600! font-medium!'
+                : 'text-slate-600! font-medium!'
+            }
+          >
+            Сотрудники
+          </Button>
+
+          <Button
+            type={currentPath === AppRoutes.REPORTS ? 'primary' : 'text'}
+            icon={<BarChartOutlined />}
+            onClick={() => onNavigate(AppRoutes.REPORTS)}
+            className={
+              currentPath === AppRoutes.REPORTS
+                ? 'bg-sky-600! font-medium!'
+                : 'text-slate-600! font-medium!'
+            }
+          >
+            Отчёты
+          </Button>
+        </nav>
+      </div>
+    </header>
+  );
+};
