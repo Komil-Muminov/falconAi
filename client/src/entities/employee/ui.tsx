@@ -10,20 +10,20 @@ interface IProps {
 
 export const EmployeeCard: React.FC<IProps> = ({ employee, action }) => {
   return (
-    <div className="employee-card__container p-4! bg-white! rounded-xl! border! border-slate-200! shadow-xs! transition-all! duration-200! hover:border-sky-300! hover:shadow-md! flex! items-center! justify-between!">
-      <div className="employee-card__content flex! items-center! gap-3!">
-        <div className="employee-card__avatar w-10! h-10! rounded-full! bg-sky-100! text-sky-700! flex! items-center! justify-center! text-lg! font-bold!">
+    <div className="employee-card__container p-5! bg-white! rounded-2xl! border! border-slate-200/80! shadow-xs! transition-colors! duration-200! hover:border-sky-300! flex! items-center! justify-between!">
+      <div className="employee-card__content flex! items-center! gap-3.5!">
+        <div className="employee-card__avatar w-11! h-11! rounded-xl! bg-gradient-to-br! from-sky-500! to-indigo-600! text-white! flex! items-center! justify-center! text-lg! font-bold! shadow-xs!">
           <UserOutlined />
         </div>
         <div className="employee-card__meta">
-          <div className="employee-card__name font-semibold! text-slate-800! text-base!">
+          <div className="employee-card__name font-bold! text-slate-900! text-base!">
             {employee.name}
           </div>
           <div className="employee-card__sub flex! items-center! gap-2! mt-1!">
-            <span className="employee-card__position text-xs! text-slate-500!">
+            <span className="employee-card__position text-xs! text-slate-500! font-medium!">
               {employee.position}
             </span>
-            <Tag color="blue" className="employee-card__tag m-0! text-xs!">
+            <Tag color="cyan" className="employee-card__tag m-0! text-xs! font-medium!">
               {employee.department}
             </Tag>
           </div>

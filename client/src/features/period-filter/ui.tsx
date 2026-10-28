@@ -1,4 +1,4 @@
-import { ClearOutlined } from '@ant-design/icons';
+import { ClearOutlined, FilterOutlined } from '@ant-design/icons';
 import { Button, DatePicker, Select } from 'antd';
 import dayjs, { Dayjs } from 'dayjs';
 import React, { useCallback } from 'react';
@@ -79,55 +79,61 @@ export const PeriodFilter: React.FC<IPeriodFilterProps> = ({
     value.startDate && value.endDate ? [dayjs(value.startDate), dayjs(value.endDate)] : null;
 
   return (
-    <div className="period-filter__container p-4! bg-white! rounded-xl! border! border-slate-200! shadow-xs! flex! flex-col! gap-3!">
-      <div className="period-filter__controls flex! flex-wrap! items-center! gap-3!">
-        <div className="period-filter__employee-select w-64!">
-          <Select
-            allowClear
-            placeholder="Все сотрудники"
-            className="w-full!"
-            value={value.employeeId}
-            onChange={handleEmployeeChange}
-            options={employees.map((emp) => ({
-              value: emp.id,
-              label: emp.name
-            }))}
-          />
-        </div>
+    <div className="period-filter__container p-5! bg-white! rounded-2xl! border! border-slate-200/80! shadow-xs! flex! flex-col! gap-4!">
+      <div className="period-filter__row-main flex! flex-col! md:flex-row! md:items-center! justify-between! gap-4!">
+        <div className="flex! flex-wrap! items-center! gap-3! flex-1!">
+          <div className="w-full! sm:w-64!">
+            <Select
+              allowClear
+              placeholder="Фильтр по сотруднику"
+              className="w-full!"
+              value={value.employeeId}
+              onChange={handleEmployeeChange}
+              options={employees.map((emp) => ({
+                value: emp.id,
+                label: emp.name
+              }))}
+            />
+          </div>
 
-        <div className="period-filter__dates">
-          <DatePicker.RangePicker
-            value={dateRangeValue}
-            onChange={handleRangeChange}
-            format="DD.MM.YYYY"
-            placeholder={['Начало периода', 'Конец периода']}
-          />
-        </div>
-
-        <div className="period-filter__presets flex! items-center! gap-1.5!">
-          <Button size="small" onClick={() => handlePresetClick('today')}>
-            Сегодня
-          </Button>
-          <Button size="small" onClick={() => handlePresetClick('yesterday')}>
-            Вчера
-          </Button>
-          <Button size="small" onClick={() => handlePresetClick('week')}>
-            Неделя
-          </Button>
-          <Button size="small" onClick={() => handlePresetClick('month')}>
-            Месяц
-          </Button>
-          <Button size="small" onClick={() => handlePresetClick('all')}>
-            За всё время
-          </Button>
+          <div className="w-full! sm:w-auto!">
+            <DatePicker.RangePicker
+              value={dateRangeValue}
+              onChange={handleRangeChange}
+              format="DD.MM.YYYY"
+              placeholder={['Начало периода', 'Конец периода']}
+              className="w-full!"
+            />
+          </div>
         </div>
 
         <Button
           icon={<ClearOutlined />}
           onClick={onReset}
-          className="period-filter__reset-btn ml-auto!"
+          className="period-filter__reset-btn border-slate-300! text-slate-600! hover:text-slate-900! self-start! md:self-auto!"
         >
           Сбросить
+        </Button>
+      </div>
+
+      <div className="period-filter__row-presets flex! items-center! gap-2! flex-wrap! pt-3! border-t! border-slate-100!">
+        <span className="text-xs! font-semibold! text-slate-400! flex! items-center! gap-1! mr-1!">
+          <FilterOutlined /> Быстрый выбор:
+        </span>
+        <Button size="small" onClick={() => handlePresetClick('today')} className="rounded-md!">
+          Сегодня
+        </Button>
+        <Button size="small" onClick={() => handlePresetClick('yesterday')} className="rounded-md!">
+          Вчера
+        </Button>
+        <Button size="small" onClick={() => handlePresetClick('week')} className="rounded-md!">
+          Эта неделя
+        </Button>
+        <Button size="small" onClick={() => handlePresetClick('month')} className="rounded-md!">
+          Этот месяц
+        </Button>
+        <Button size="small" onClick={() => handlePresetClick('all')} className="rounded-md!">
+          За всё время
         </Button>
       </div>
     </div>

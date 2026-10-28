@@ -26,14 +26,16 @@ export const TimerLaunchForm: React.FC<ITimerLaunchProps> = ({
   );
 
   return (
-    <div className="timer-launch__container p-5! bg-white! rounded-xl! border! border-slate-200! shadow-xs!">
-      <div className="timer-launch__header mb-4!">
-        <h3 className="timer-launch__title text-lg! font-bold! text-slate-800! m-0!">
-          Быстрый запуск таймера
-        </h3>
-        <p className="timer-launch__subtitle text-xs! text-slate-500! mt-1! mb-0!">
-          Выберите сотрудника, укажите задачу и нажмите Старт
-        </p>
+    <div className="timer-launch__container p-6! bg-white! rounded-2xl! border! border-slate-200/80! shadow-xs!">
+      <div className="timer-launch__header flex! items-center! justify-between! mb-5!">
+        <div>
+          <h3 className="timer-launch__title text-lg! font-bold! text-slate-900! m-0!">
+            Быстрый запуск таймера
+          </h3>
+          <p className="timer-launch__subtitle text-xs! text-slate-500! mt-1! mb-0!">
+            Выберите сотрудника, укажите задачу и начните отсчёт рабочего времени
+          </p>
+        </div>
       </div>
 
       <Form form={form} onFinish={handleFinish} layout="vertical" className="timer-launch__form">
@@ -43,7 +45,7 @@ export const TimerLaunchForm: React.FC<ITimerLaunchProps> = ({
           selectedEmployeeId={selectedEmployeeId}
         />
 
-        <div className="timer-launch__submit-wrapper flex! justify-end! mt-4!">
+        <div className="timer-launch__submit-wrapper flex! justify-end! mt-5!">
           <Button
             type="primary"
             htmlType="submit"
@@ -51,7 +53,7 @@ export const TimerLaunchForm: React.FC<ITimerLaunchProps> = ({
             size="large"
             loading={isLoading}
             disabled={isSelectedEmployeeBusy || employees.length === 0}
-            className="bg-emerald-600! hover:bg-emerald-700! font-medium! px-6!"
+            className="bg-emerald-600! hover:bg-emerald-700! font-semibold! px-7! h-11! shadow-sm!"
           >
             Запустить таймер
           </Button>

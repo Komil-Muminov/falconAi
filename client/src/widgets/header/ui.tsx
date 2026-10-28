@@ -12,16 +12,18 @@ export const HeaderWidget: React.FC<IHeaderProps> = ({ currentPath, onNavigate }
           className="app-header__logo flex! items-center! gap-3! cursor-pointer!"
           onClick={() => onNavigate(AppRoutes.TRACKER)}
         >
-          <div className="app-header__logo-icon w-9! h-9! rounded-xl! bg-gradient-to-tr! from-sky-600! to-indigo-600! text-white! flex! items-center! justify-center! text-lg! font-black! shadow-sm!">
+          <div className="app-header__logo-icon w-10! h-10! rounded-xl! bg-gradient-to-tr! from-sky-600! to-indigo-600! text-white! flex! items-center! justify-center! text-lg! font-black! shadow-sm!">
             <ClockCircleOutlined />
           </div>
-          <div className="app-header__brand">
-            <span className="app-header__title font-black! text-slate-800! text-lg! tracking-tight!">
-              Falcon<span className="text-sky-600!">AI</span>
-            </span>
-            <span className="app-header__badge ml-2! text-xs! font-medium! text-sky-700! bg-sky-50! px-2! py-0.5! rounded-md! border! border-sky-200!">
-              Time Tracker
-            </span>
+          <div className="app-header__brand flex! flex-col!">
+            <div className="flex! items-center! gap-2!">
+              <span className="app-header__title font-black! text-slate-900! text-lg! tracking-tight!">
+                Falcon<span className="text-sky-600!">AI</span>
+              </span>
+              <span className="app-header__badge text-xs! font-semibold! text-sky-700! bg-sky-50! px-2! py-0.5! rounded-md! border! border-sky-200!">
+                TimeTracker
+              </span>
+            </div>
           </div>
         </div>
 
@@ -32,8 +34,8 @@ export const HeaderWidget: React.FC<IHeaderProps> = ({ currentPath, onNavigate }
             onClick={() => onNavigate(AppRoutes.TRACKER)}
             className={
               currentPath === AppRoutes.TRACKER
-                ? 'bg-sky-600! font-medium!'
-                : 'text-slate-600! font-medium!'
+                ? 'bg-sky-600! font-semibold!'
+                : 'text-slate-600! font-medium! hover:bg-slate-100!'
             }
           >
             Трекинг
@@ -45,8 +47,8 @@ export const HeaderWidget: React.FC<IHeaderProps> = ({ currentPath, onNavigate }
             onClick={() => onNavigate(AppRoutes.EMPLOYEES)}
             className={
               currentPath === AppRoutes.EMPLOYEES
-                ? 'bg-sky-600! font-medium!'
-                : 'text-slate-600! font-medium!'
+                ? 'bg-sky-600! font-semibold!'
+                : 'text-slate-600! font-medium! hover:bg-slate-100!'
             }
           >
             Сотрудники
@@ -58,8 +60,8 @@ export const HeaderWidget: React.FC<IHeaderProps> = ({ currentPath, onNavigate }
             onClick={() => onNavigate(AppRoutes.REPORTS)}
             className={
               currentPath === AppRoutes.REPORTS
-                ? 'bg-sky-600! font-medium!'
-                : 'text-slate-600! font-medium!'
+                ? 'bg-sky-600! font-semibold!'
+                : 'text-slate-600! font-medium! hover:bg-slate-100!'
             }
           >
             Отчёты

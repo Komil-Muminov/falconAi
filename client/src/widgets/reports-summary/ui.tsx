@@ -57,7 +57,7 @@ export const ReportsWidget: React.FC<IReportsWidgetProps> = ({ className = '' })
   return (
     <div className={`reports-widget__container flex! flex-col! gap-6! ${className}`}>
       <div className="reports-widget__header">
-        <h2 className="reports-widget__title text-2xl! font-bold! text-slate-800! m-0!">
+        <h2 className="reports-widget__title text-2xl! font-bold! text-slate-900! m-0!">
           Аналитика и учёт рабочего времени
         </h2>
         <p className="reports-widget__subtitle text-sm! text-slate-500! mt-1! mb-0!">
@@ -73,42 +73,48 @@ export const ReportsWidget: React.FC<IReportsWidgetProps> = ({ className = '' })
       />
 
       <div className="reports-widget__kpi-grid grid! grid-cols-1! sm:grid-cols-3! gap-4!">
-        <Card className="rounded-xl! border-slate-200! shadow-xs!">
-          <div className="flex! items-center! gap-3!">
-            <div className="w-10! h-10! rounded-lg! bg-sky-100! text-sky-700! flex! items-center! justify-center! text-lg!">
+        <Card className="rounded-2xl! border-slate-200/80! shadow-xs! p-1!">
+          <div className="flex! items-center! gap-4!">
+            <div className="w-12! h-12! rounded-xl! bg-sky-100! text-sky-700! flex! items-center! justify-center! text-xl! font-bold!">
               <ClockCircleOutlined />
             </div>
             <div>
-              <div className="text-xs! text-slate-500! font-medium!">Общее время за период</div>
-              <div className="text-xl! font-bold! text-slate-800! mt-0.5!">
+              <div className="text-xs! text-slate-500! font-semibold! uppercase! tracking-wider!">
+                Общее время
+              </div>
+              <div className="text-2xl! font-black! text-slate-900! mt-0.5!">
                 {formatDurationHuman(totals.totalSeconds)}
               </div>
             </div>
           </div>
         </Card>
 
-        <Card className="rounded-xl! border-slate-200! shadow-xs!">
-          <div className="flex! items-center! gap-3!">
-            <div className="w-10! h-10! rounded-lg! bg-emerald-100! text-emerald-700! flex! items-center! justify-center! text-lg!">
+        <Card className="rounded-2xl! border-slate-200/80! shadow-xs! p-1!">
+          <div className="flex! items-center! gap-4!">
+            <div className="w-12! h-12! rounded-xl! bg-emerald-100! text-emerald-700! flex! items-center! justify-center! text-xl! font-bold!">
               <CheckCircleOutlined />
             </div>
             <div>
-              <div className="text-xs! text-slate-500! font-medium!">Выполнено задач</div>
-              <div className="text-xl! font-bold! text-slate-800! mt-0.5!">
+              <div className="text-xs! text-slate-500! font-semibold! uppercase! tracking-wider!">
+                Выполнено задач
+              </div>
+              <div className="text-2xl! font-black! text-slate-900! mt-0.5!">
                 {totals.totalTasks}
               </div>
             </div>
           </div>
         </Card>
 
-        <Card className="rounded-xl! border-slate-200! shadow-xs!">
-          <div className="flex! items-center! gap-3!">
-            <div className="w-10! h-10! rounded-lg! bg-amber-100! text-amber-700! flex! items-center! justify-center! text-lg!">
+        <Card className="rounded-2xl! border-slate-200/80! shadow-xs! p-1!">
+          <div className="flex! items-center! gap-4!">
+            <div className="w-12! h-12! rounded-xl! bg-amber-100! text-amber-700! flex! items-center! justify-center! text-xl! font-bold!">
               <FireOutlined />
             </div>
             <div>
-              <div className="text-xs! text-slate-500! font-medium!">Активных таймеров сейчас</div>
-              <div className="text-xl! font-bold! text-slate-800! mt-0.5!">
+              <div className="text-xs! text-slate-500! font-semibold! uppercase! tracking-wider!">
+                Активных таймеров
+              </div>
+              <div className="text-2xl! font-black! text-slate-900! mt-0.5!">
                 {totals.activeCount}
               </div>
             </div>
@@ -116,7 +122,7 @@ export const ReportsWidget: React.FC<IReportsWidgetProps> = ({ className = '' })
         </Card>
       </div>
 
-      <div className="reports-widget__table-box bg-white! rounded-xl! border! border-slate-200! shadow-xs! overflow-hidden!">
+      <div className="reports-widget__table-box bg-white! rounded-2xl! border! border-slate-200/80! shadow-xs! overflow-hidden!">
         <If condition={isReportEmpty}>
           <EmptyState
             title="Пустой отчёт"

@@ -75,13 +75,18 @@ export const TimeEntriesWidget: React.FC<ITimeEntriesWidgetProps> = ({ className
   }, [handleDelete]);
 
   return (
-    <div className={`time-entries-widget__wrapper flex! flex-col! gap-4! ${className}`}>
-      <div className="time-entries-widget__top-bar flex! flex-col! sm:flex-row! sm:items-center! justify-between! gap-3!">
+    <div className={`time-entries-widget__wrapper flex! flex-col! gap-5! ${className}`}>
+      <div className="time-entries-widget__top-bar flex! flex-col! sm:flex-row! sm:items-center! justify-between! gap-4!">
         <div>
-          <h3 className="time-entries-widget__title text-lg! font-bold! text-slate-800! m-0!">
-            История и журнал записей времени
-          </h3>
-          <p className="time-entries-widget__sub text-xs! text-slate-500! mt-0.5! mb-0!">
+          <div className="flex! items-center! gap-2!">
+            <h3 className="time-entries-widget__title text-lg! font-bold! text-slate-900! m-0!">
+              История и журнал записей времени
+            </h3>
+            <span className="text-xs! font-bold! text-sky-700! bg-sky-100! px-2.5! py-0.5! rounded-full!">
+              {entries.length}
+            </span>
+          </div>
+          <p className="time-entries-widget__sub text-xs! text-slate-500! mt-1! mb-0!">
             Просмотр зафиксированных сессий сотрудников с фильтрацией по дате
           </p>
         </div>
@@ -91,7 +96,7 @@ export const TimeEntriesWidget: React.FC<ITimeEntriesWidgetProps> = ({ className
           icon={<PlusOutlined />}
           onClick={() => setIsManualModalOpen(true)}
           disabled={employees.length === 0}
-          className="border-sky-300! text-sky-700! hover:bg-sky-50!"
+          className="border-sky-300! text-sky-700! hover:bg-sky-50! font-medium! shadow-2xs!"
         >
           Внести вручную
         </Button>
@@ -104,7 +109,7 @@ export const TimeEntriesWidget: React.FC<ITimeEntriesWidgetProps> = ({ className
         onReset={handleResetFilter}
       />
 
-      <div className="time-entries-widget__table-box bg-white! rounded-xl! border! border-slate-200! shadow-xs! overflow-hidden!">
+      <div className="time-entries-widget__table-box bg-white! rounded-2xl! border! border-slate-200/80! shadow-xs! overflow-hidden!">
         <If condition={!isLoading && entries.length === 0}>
           <EmptyState
             title="Записи не найдены"
@@ -118,7 +123,7 @@ export const TimeEntriesWidget: React.FC<ITimeEntriesWidgetProps> = ({ className
             columns={columns}
             rowKey="id"
             loading={isLoading}
-            pagination={{ pageSize: 10, showSizeChanger: true }}
+            pagination={{ pageSize: 8, showSizeChanger: true }}
             className="time-entries-widget__table"
             scroll={{ x: 700 }}
           />

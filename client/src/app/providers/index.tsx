@@ -26,9 +26,28 @@ export const AppProviders: React.FC<IProps> = ({ children }) => {
       theme={{
         token: {
           colorPrimary: '#0284c7',
-          borderRadius: 8,
-          fontFamily:
-            '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
+          borderRadius: 10,
+          fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+          fontSize: 14
+        },
+        components: {
+          Button: {
+            controlHeight: 38,
+            borderRadius: 8
+          },
+          Input: {
+            controlHeight: 42,
+            borderRadius: 8
+          },
+          Select: {
+            controlHeight: 42,
+            borderRadius: 8
+          },
+          Table: {
+            borderRadius: 12,
+            headerBg: '#f8fafc',
+            headerColor: '#475569'
+          }
         }
       }}
     >

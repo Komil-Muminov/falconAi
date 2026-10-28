@@ -63,9 +63,14 @@ export const EmployeeManagementWidget: React.FC<IEmployeeManagementProps> = ({
     <div className={`employee-management__container flex! flex-col! gap-6! ${className}`}>
       <div className="employee-management__header flex! flex-col! sm:flex-row! sm:items-center! justify-between! gap-4!">
         <div>
-          <h2 className="employee-management__title text-2xl! font-bold! text-slate-800! m-0!">
-            Сотрудники компании
-          </h2>
+          <div className="flex! items-center! gap-2!">
+            <h2 className="employee-management__title text-2xl! font-bold! text-slate-900! m-0!">
+              Сотрудники компании
+            </h2>
+            <span className="text-xs! font-bold! text-sky-700! bg-sky-100! px-2.5! py-0.5! rounded-full!">
+              {employees.length}
+            </span>
+          </div>
           <p className="employee-management__subtitle text-sm! text-slate-500! mt-1! mb-0!">
             Управление персоналом, должностями и закреплёнными отделами
           </p>
@@ -76,14 +81,14 @@ export const EmployeeManagementWidget: React.FC<IEmployeeManagementProps> = ({
           icon={<PlusOutlined />}
           size="large"
           onClick={() => setIsModalOpen(true)}
-          className="bg-sky-600! hover:bg-sky-700!"
+          className="bg-sky-600! hover:bg-sky-700! font-semibold! px-5! h-11! shadow-sm!"
         >
           Добавить сотрудника
         </Button>
       </div>
 
       <If condition={isLoading}>
-        <div className="employee-management__loader flex! justify-center! py-12!">
+        <div className="employee-management__loader flex! justify-center! py-16!">
           <Spin size="large" />
         </div>
       </If>

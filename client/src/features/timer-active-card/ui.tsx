@@ -31,23 +31,23 @@ export const TimerActiveCard: React.FC<ITimerActiveCardProps> = ({
   }, [onStop, entry.id]);
 
   return (
-    <div className="timer-active-card__item p-4! bg-gradient-to-r! from-sky-50! to-indigo-50! border! border-sky-200! rounded-xl! shadow-xs! flex! flex-col! md:flex-row! items-start! md:items-center! justify-between! gap-4!">
-      <div className="timer-active-card__info flex! items-start! gap-3!">
-        <div className="timer-active-card__icon-box w-10! h-10! rounded-full! bg-sky-600! text-white! flex! items-center! justify-center! text-lg! animate-pulse!">
+    <div className="timer-active-card__item p-5! bg-gradient-to-r! from-sky-50/80! via-blue-50/50! to-indigo-50/80! border! border-sky-200! rounded-2xl! shadow-xs! flex! flex-col! md:flex-row! items-start! md:items-center! justify-between! gap-4!">
+      <div className="timer-active-card__info flex! items-center! gap-4!">
+        <div className="timer-active-card__icon-box w-12! h-12! rounded-xl! bg-sky-600! text-white! flex! items-center! justify-center! text-xl! shadow-sm! animate-pulse!">
           <ClockCircleOutlined />
         </div>
         <div className="timer-active-card__meta">
-          <div className="timer-active-card__employee-name font-bold! text-slate-800! text-base!">
+          <div className="timer-active-card__employee-name font-bold! text-slate-900! text-base!">
             {entry.employeeName || 'Сотрудник'}
           </div>
-          <div className="timer-active-card__task text-sm! text-slate-600! mt-0.5!">
+          <div className="timer-active-card__task text-sm! text-slate-600! font-medium! mt-0.5!">
             {entry.taskDescription}
           </div>
         </div>
       </div>
 
       <div className="timer-active-card__controls flex! items-center! justify-between! w-full! md:w-auto! gap-4!">
-        <div className="timer-active-card__ticker font-mono! text-2xl! font-bold! text-sky-700! bg-white! px-3! py-1! rounded-lg! border! border-sky-200! shadow-xs!">
+        <div className="timer-active-card__ticker font-mono! text-2xl! font-bold! text-sky-800! bg-white! px-4! py-2! rounded-xl! border! border-sky-200! shadow-xs! tracking-wider!">
           {formatDuration(elapsedSeconds)}
         </div>
 
@@ -58,7 +58,7 @@ export const TimerActiveCard: React.FC<ITimerActiveCardProps> = ({
           icon={<PauseCircleOutlined />}
           loading={isStopping}
           onClick={handleStop}
-          className="timer-active-card__btn-stop font-medium!"
+          className="timer-active-card__btn-stop font-semibold! px-5! h-11! shadow-sm!"
         >
           Остановить
         </Button>
