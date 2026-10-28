@@ -42,7 +42,7 @@ export const App: React.FC = () => {
       </main>
 
       <footer className="app-footer border-t! border-slate-200! bg-white! py-4! text-center! text-xs! text-slate-400!">
-        FalconAI TimeTracker &copy; {new Date().getFullYear()} — Учёт рабочего времени сотрудников
+        TimeTracker &copy; {new Date().getFullYear()} — Учёт рабочего времени сотрудников
       </footer>
     </div>
   );

@@ -18,7 +18,7 @@ export const HeaderWidget: React.FC<IHeaderProps> = ({ currentPath, onNavigate }
           <div className="app-header__brand flex! flex-col!">
             <div className="flex! items-center! gap-2!">
               <span className="app-header__title font-black! text-slate-900! text-lg! tracking-tight!">
-                Falcon<span className="text-sky-600!">AI</span>
+                Time<span className="text-sky-600!">Tracker</span>
               </span>
               <span className="app-header__badge text-xs! font-semibold! text-sky-700! bg-sky-50! px-2! py-0.5! rounded-md! border! border-sky-200!">
                 TimeTracker
